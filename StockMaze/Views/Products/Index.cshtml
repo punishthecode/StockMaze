@@ -1,0 +1,45 @@
+﻿@model IEnumerable<StockMaze.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<table class="table">
+			<thead>
+				<tr >
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.productName)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.productDesc)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.vendorId)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.vendorName)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.productCost)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.productMargin)</th>
+					<th class="align-middle">@Html.DisplayNameFor(model=>model.productSellingPrice)</th>
+					<th> Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.productName)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.productDesc)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.vendorId)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.vendorName)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.productCost)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.productMargin)</td>
+						<td class="align-middle">@Html.DisplayFor(modelItem =>item.productSellingPrice)</td>
+						<td><a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.productId"><i class="bi bi-pencil-square"></i>Edit</a></td>
+						<td><a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.productId"><i class="bi bi-eye"></i>Details</a></td>
+						<td><a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.productId"><i class="bi bi-trash"></i>Delete</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+<div style="position:fixed; right:50px; bottom:100px;" class="text-white">
+	<a class="btn btn-success " asp-controller="Products" asp-action="Create"><i class="bi bi-plus-circle"></i>Create</a>
+</div>

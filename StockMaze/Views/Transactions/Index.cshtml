@@ -1,0 +1,98 @@
+﻿@model IEnumerable<StockMaze.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransactionInvoiceRef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryInUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryOutUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InventoryBalUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCostPricePU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSellingPricePU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InvBalCostPriceTotal)
+            </th>
+            <th colspan="3">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionInvoiceRef)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryInUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryOutUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InventoryBalUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCostPricePU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSellingPricePU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvBalCostPriceTotal)
+            </td>
+            <td><a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.transactionId"><i class="bi bi-pencil-square"></i>Edit</a></td>
+						<td><a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.transactionId"><i class="bi bi-eye"></i>Details</a></td>
+						<td><a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.transactionId"><i class="bi bi-trash"></i>Delete</a></td>
+        </tr>
+}
+    </tbody>
+</table>
+<div style="position:fixed; right:50px; bottom:100px;" class="text-white">
+	<a class="btn btn-success " asp-controller="transactions" asp-action="Create"><i class="bi bi-plus-circle"></i>Create</a>
+</div>

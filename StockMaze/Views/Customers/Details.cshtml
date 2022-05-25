@@ -1,0 +1,40 @@
+﻿@model StockMaze.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerAddress)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerAddress)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerPhone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerPhone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerEmail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerEmail)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model?.customerId">Edit</a> |
+     <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+</div>
