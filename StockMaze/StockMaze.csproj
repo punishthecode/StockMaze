@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+	  <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-StockMaze-9511E29E-496A-40F5-A1FF-F5036FAB81FB</UserSecretsId>
   </PropertyGroup>

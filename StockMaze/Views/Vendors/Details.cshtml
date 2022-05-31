@@ -4,39 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="padding-top:80px;">Details</h1>
 
-<div>
-    <h4>Vendor</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vendorName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vendorName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vendorAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vendorAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vendorPhone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vendorPhone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.vendorEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.vendorEmail)
-        </dd>
-    </dl>
+<div style="padding-top:20px;" class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1 class="text-center">@Model.vendorName Details</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="vendorName" class="control-label"></label>
+                <input asp-for="vendorName" class="form-control" readonly/>
+                <span asp-validation-for="vendorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vendorAddress" class="control-label"></label>
+                <input asp-for="vendorAddress" class="form-control" readonly/>
+                <span asp-validation-for="vendorAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vendorPhone" class="control-label"></label>
+                <input asp-for="vendorPhone" class="form-control" readonly/>
+                <span asp-validation-for="vendorPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vendorEmail" class="control-label"></label>
+                <input asp-for="vendorEmail" class="form-control"readonly />
+                <span asp-validation-for="vendorEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                          <a class="btn btn-outline-primary float-right" asp-action="Edit" asp-route-id="@Model.vendorId">Edit</a> |
+                        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+            </div>
+    </div>
 </div>
-<div>
-    <a class ="btn btn-outline-primary"asp-action="Edit" asp-route-id="@Model?.vendorId">Edit</a> |
-     <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+</div>
 </div>

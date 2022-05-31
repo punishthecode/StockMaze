@@ -4,11 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Vendor</h4>
+      <p style="padding-top:80px;">
+            <h1 class="text-center">Update Vendor Details</h1>
+        </p>
 <hr />
-<div class="row">
+<div style="padding-top:20px;" class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -34,8 +34,8 @@
                 <span asp-validation-for="vendorEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />|
-                 <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+               <input type="submit" value="Update" class="btn btn-outline-success float-right" /> |
+                        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
             </div>
         </form>
     </div>

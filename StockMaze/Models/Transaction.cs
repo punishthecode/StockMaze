@@ -24,6 +24,7 @@ namespace StockMaze.Models
 
         [Required]
         [ForeignKey("productId")]
+		[Display(Name ="Product Id")]
         public int ProductId { get; set; }
 
         [Display(Name = "Product Name")]

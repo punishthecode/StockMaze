@@ -26,6 +26,17 @@ namespace StockMaze.Controllers
                           View(await _context.Customer.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Customer'  is null.");
         }
+        [HttpGet]
+        public async Task<IActionResult> Index(string SearchText)
+        {
+            var res = from x in _context.Customer select x;
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                res = res.Where(x => x.customerName.Contains(SearchText));
+            }
+            return View(await res.AsNoTracking().ToListAsync());
+        }
+
 
         // GET: Customers/Details/5
         public async Task<IActionResult> Details(int? id)

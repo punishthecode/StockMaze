@@ -10,9 +10,9 @@ namespace StockMaze.Data
             : base(options)
         {
         }
-        public DbSet<StockMaze.Models.Product>? Product { get; set; }
-        public DbSet<StockMaze.Models.Customer>? Customer { get; set; }
-        public DbSet<StockMaze.Models.Vendor>? Vendor { get; set; }
-        public DbSet<StockMaze.Models.Transaction>? Transaction { get; set; }
+        public DbSet<StockMaze.Models.Product> product { get; set; }
+        public DbSet<StockMaze.Models.Customer> Customer { get; set; }
+        public DbSet<StockMaze.Models.Vendor> Vendor { get; set; }
+        public DbSet<StockMaze.Models.Transaction> Transaction { get; set; }
     }
 }

@@ -4,87 +4,81 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 style="padding-top:80px;" >Details</h1>
 
-<div>
-    <h4>Transaction</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TransactionDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TransactionDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TransactionName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TransactionName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TransactionDesc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TransactionDesc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TransactionInvoiceRef)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TransactionInvoiceRef)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InventoryInUnit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InventoryInUnit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InventoryOutUnit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InventoryOutUnit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InventoryBalUnit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InventoryBalUnit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductCostPricePU)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductCostPricePU)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProductSellingPricePU)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProductSellingPricePU)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InvBalCostPriceTotal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InvBalCostPriceTotal)
-        </dd>
-    </dl>
+<div style="padding-top:20px;" class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1 class="text-center">@Model.TransactionName Details</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TransactionDate" class="control-label"></label>
+                <input asp-for="TransactionDate" class="form-control" readonly/>
+                <span asp-validation-for="TransactionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionName" class="control-label"></label>
+                <input asp-for="TransactionName" class="form-control" readonly/>
+                <span asp-validation-for="TransactionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionDesc" class="control-label"></label>
+                <input asp-for="TransactionDesc" class="form-control" readonly/>
+                <span asp-validation-for="TransactionDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TransactionInvoiceRef" class="control-label"></label>
+                <input asp-for="TransactionInvoiceRef" class="form-control" readonly/>
+                <span asp-validation-for="TransactionInvoiceRef" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <input asp-for="ProductId" class="form-control" readonly/>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" readonly/>
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InventoryInUnit" class="control-label"></label>
+                <input asp-for="InventoryInUnit" class="form-control" readonly/>
+                <span asp-validation-for="InventoryInUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InventoryOutUnit" class="control-label"></label>
+                <input asp-for="InventoryOutUnit" class="form-control"readonly />
+                <span asp-validation-for="InventoryOutUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InventoryBalUnit" class="control-label"></label>
+                <input asp-for="InventoryBalUnit" class="form-control" readonly/>
+                <span asp-validation-for="InventoryBalUnit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCostPricePU" class="control-label"></label>
+                <input asp-for="ProductCostPricePU" class="form-control"readonly />
+                <span asp-validation-for="ProductCostPricePU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductSellingPricePU" class="control-label"></label>
+                <input asp-for="ProductSellingPricePU" class="form-control"readonly />
+                <span asp-validation-for="ProductSellingPricePU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InvBalCostPriceTotal" class="control-label"></label>
+                <input asp-for="InvBalCostPriceTotal" class="form-control" readonly/>
+                <span asp-validation-for="InvBalCostPriceTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                          <a class="btn btn-outline-primary float-right" asp-action="Edit" asp-route-id="@Model.transactionId">Edit</a> |
+                        <a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+            </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.transactionId">Edit</a> |
-<a class="btn btn-outline-secondary" asp-action="Index">Back</a>
+</div>
 </div>

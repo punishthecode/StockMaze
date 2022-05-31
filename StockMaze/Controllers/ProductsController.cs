@@ -22,20 +22,34 @@ namespace StockMaze.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-              return _context.Product != null ? 
-                          View(await _context.Product.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Product'  is null.");
+                return _context.product != null ?
+                            View(await _context.product.ToListAsync()) :
+                            Problem("Entity set 'ApplicationDbContext.Product'  is null.");
         }
+
+		[HttpGet]
+        public async Task<IActionResult> Index(string SearchText)
+		{
+            var res = from x in _context.product select x;
+			if (!string.IsNullOrEmpty(SearchText))
+			{
+                res=res.Where(x=>x.productName.Contains(SearchText));
+			}
+            return View(await res.AsNoTracking().ToListAsync());
+        }
+        
+
+        
 
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.product == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var product = await _context.product
                 .FirstOrDefaultAsync(m => m.productId == id);
             if (product == null)
             {
@@ -70,12 +84,12 @@ namespace StockMaze.Controllers
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.product == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.product.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -121,12 +135,12 @@ namespace StockMaze.Controllers
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.product == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
+            var product = await _context.product
                 .FirstOrDefaultAsync(m => m.productId == id);
             if (product == null)
             {
@@ -141,14 +155,14 @@ namespace StockMaze.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Product == null)
+            if (_context.product == null)
             {
                 return Problem("Entity set 'ApplicationDbContext.Product'  is null.");
             }
-            var product = await _context.Product.FindAsync(id);
+            var product = await _context.product.FindAsync(id);
             if (product != null)
             {
-                _context.Product.Remove(product);
+                _context.product.Remove(product);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +171,7 @@ namespace StockMaze.Controllers
 
         private bool ProductExists(int id)
         {
-          return (_context.Product?.Any(e => e.productId == id)).GetValueOrDefault();
+          return (_context.product?.Any(e => e.productId == id)).GetValueOrDefault();
         }
     }
 }

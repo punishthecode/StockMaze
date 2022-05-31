@@ -2,14 +2,26 @@
 
 @{
     ViewData["Title"] = "Index";
+    int intsno=0;
 }
 
-
-<div class="row">
-	<div class="col-md-8 offset-md-2">
-		<table class="table">
+<h2 class="text-center">Customers</h2>
+<div class="col-4 p-0 justify-content-end">
+	<form asp-controller="Customers" asp-action="Index" method="get">
+		<span style="padding-top:100px;" class="btn-group">
+			<input class="form-control" type="text" name="SearchText" placeholder="Search Product" />
+			<input style="background-color:rgb(164,115,67); border-radius:5px; color:white;" class="p-1 m-lg-2 btn btn-sm btn-info" type="submit" value="Search" />
+		</span>
+	</form>
+</div>
+<div class="row text">
+<div class="col-md-8 offset-2">
+<div style="padding-top:100px;" class="row">
+<div class="col-md-8 offset-2">
+		<table  style="border : 1px solid black; padding : 10px;" class="table">
     <thead>
-        <tr>
+        <tr style="text-align:center">
+            <th>S.no</th>
             <th>
                 @Html.DisplayNameFor(model => model.customerName)
             </th>
@@ -27,7 +39,9 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    intsno = intsno + 1;
         <tr>
+            <td>@intsno</td>
             <td>
                 @Html.DisplayFor(modelItem => item.customerName)
             </td>
@@ -40,13 +54,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.customerEmail)
             </td>
-                <td><a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.customerId"><i class="bi bi-pencil-square"></i>Edit</a></td>
-			    <td><a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.customerId"><i class="bi bi-eye"></i>Details</a></td>
-				<td><a class="btn btn-danger text-white" asp-action="Delete" asp-route-id="@item.customerId"><i class="bi bi-trash"></i>Delete</a></td>
+               <td>
+						<div class="btn-group">
+						<a class="btn btn-sm btn-outline-primary" style="margin-right:16px" asp-action="Edit" asp-route-id="@item.customerId"><i class="bi bi-pencil-square"></i>Edit</a>
+						<a class="btn btn-sm btn-outline-info" asp-action="Details" asp-route-id="@item.customerId"><i class="bi bi-eye"></i>Details</a>
+						<a class="btn btn-sm btn-outline-danger" style="margin-left:16px"asp-action="Delete" asp-route-id="@item.customerId"><i class="bi bi-trash"></i>Delete</a>
+						</div>
+						</td>
             </tr>
 }
     </tbody>
 </table>
+</div>
+</div>
 </div>
 </div>
 <div style="position:fixed; right:50px; bottom:100px;" class="text-white">
